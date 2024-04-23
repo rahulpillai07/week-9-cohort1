@@ -31,6 +31,10 @@ const router = express.Router();
     const courses = await Course.find({published: true});
     res.json({ courses });
   });
+
+  router.get('/hello',(req,res)=>{
+    res.send('hello from the usr server')
+  })
   
   router.post('/courses/:courseId', authenticateJwt, async (req, res) => {
     const course = await Course.findById(req.params.courseId);
